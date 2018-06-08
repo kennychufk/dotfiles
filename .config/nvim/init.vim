@@ -27,6 +27,7 @@ Plug 'majutsushi/tagbar'
 " Keyword completion
 Plug 'Valloric/YouCompleteMe'
 " Code formatting
+Plug 'Chiel92/vim-autoformat'
 Plug 'rhysd/vim-clang-format'
 Plug 'maksimr/vim-jsbeautify'
 " Syntax checking
@@ -84,6 +85,7 @@ let g:buffergator_suppress_keymaps = 1
 let g:clang_format#code_style = 'google'
 let g:clang_format#style_options = {
   \ "Standard": "C++11" }
+let g:ycm_always_populate_location_list = 1
 
 let g:editorconfig_Beautifier='~/.editorconfig'
 
@@ -131,7 +133,7 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 let g:pencil#wrapModeDefault = 'soft' 
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType markdown,mkd,tex call pencil#init()
                             \ | setl spell spl=en_us fdl=4 noru nonu nornu
                             \ | setl fdo+=search
 "  autocmd Filetype git,gitsendemail,*commit*,*COMMIT*
@@ -147,6 +149,8 @@ nnoremap <leader>jd :YcmCompleter GoTo<cr>
 nnoremap <leader>ji :YcmCompleter GoToInclude<cr>
 nnoremap <leader>gt :YcmCompleter GetType<cr>
 nnoremap <leader>f :YcmCompleter FixIt<cr>
+nnoremap <leader>[ :lprevious<cr>
+nnoremap <leader>] :lnext<cr>
 
 " filetype
 filetype on
