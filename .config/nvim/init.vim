@@ -7,9 +7,14 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'reedes/vim-colors-pencil'
-Plug 'reedes/vim-pencil'
 " Text editing
 Plug 'tpope/vim-surround'
+Plug 'tommcdo/vim-exchange'
+" Document writing
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'reedes/vim-pencil'
+Plug 'vim-latex/vim-latex'
 " File/buffer/layout management
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -49,6 +54,7 @@ Plug 'KabbAmine/zeavim.vim', {'on': [
 call plug#end()
 
 " Enable file type detection and do language-dependent indenting.
+set nocompatible
 filetype plugin indent on
 
 set hidden " allow hidden buffers, don't limit to 1 file per window/split
@@ -75,6 +81,12 @@ set list
 syntax on " switch syntax highlighting on
 set number " show line numbers
 
+" filetype
+filetype on
+au BufNewFile,BufRead *.cuh set filetype=cpp
+au BufNewFile,BufRead *.inc set filetype=tex
+let g:tex_flavor = "latex"
+
 let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -99,6 +111,10 @@ let g:zv_file_types = {
 " xolox/vim-session
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
+
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_ViewRule_pdf = 'okular --unique'
+
 " Enforce good practice by disabling some keys
 inoremap <C-C> <nop>
 noremap <Up> <nop>
@@ -110,6 +126,12 @@ nnoremap <leader>ev :sp $MYVIMRC<cr> " shorthand for editing vimrc
 nnoremap <leader>b :BuffergatorToggle<cr>
 nnoremap <leader>tb :BuffergatorTabsToggle<cr>
 nnoremap <leader>tg :TagbarToggle<cr>
+nnoremap <leader>jd :YcmCompleter GoTo<cr>
+nnoremap <leader>ji :YcmCompleter GoToInclude<cr>
+nnoremap <leader>gt :YcmCompleter GetType<cr>
+nnoremap <leader>f :YcmCompleter FixIt<cr>
+nnoremap <leader>[ :lprevious<cr>
+nnoremap <leader>] :lnext<cr>
 
 " let g:tmux_navigator_no_mappings = 1
 nnoremap è :TmuxNavigateLeft<cr>
@@ -130,7 +152,8 @@ autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-let g:pencil#wrapModeDefault = 'soft' 
+
+let g:pencil#wrapModeDefault = 'soft'
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd,tex call pencil#init()
@@ -145,13 +168,6 @@ augroup pencil
                             \ | setl spell spl=en_us et sw=2 ts=2
 augroup END
 
-nnoremap <leader>jd :YcmCompleter GoTo<cr>
-nnoremap <leader>ji :YcmCompleter GoToInclude<cr>
-nnoremap <leader>gt :YcmCompleter GetType<cr>
-nnoremap <leader>f :YcmCompleter FixIt<cr>
-nnoremap <leader>[ :lprevious<cr>
-nnoremap <leader>] :lnext<cr>
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
-" filetype
-filetype on
-au BufNewFile,BufRead *.cuh set filetype=cpp
