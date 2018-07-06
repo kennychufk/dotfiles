@@ -92,6 +92,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:gutentags_dont_load = 1
 let g:buffergator_suppress_keymaps = 1
 let g:clang_format#code_style = 'google'

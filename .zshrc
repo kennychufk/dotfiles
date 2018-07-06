@@ -1,9 +1,18 @@
+OS="`uname`"
 # auto: only use color when printing to stdout 
-alias ls='ls -aF --color=auto'
+case $OS in
+  'Linux')
+    alias ls='ls -aF --color=auto'
+    ;;
+  'Darwin')
+    alias ls='ls -aGF'
+    ;;
+  *) ;;
+esac
 alias grep='grep --color=auto'
 alias startsddm='sudo systemctl start sddm'
-[ "$TERM" != "linux" ] && \
-  export TERM="rxvt-unicode-256color"
+# [ "$TERM" != "linux" ] && \
+#   export TERM="rxvt-unicode-256color"
   #export TERM="xterm-256color"
 
 ## workaround for handling TERM variable in multiple tmux sessions properly from http://sourceforge.net/p/tmux/mailman/message/32751663/ by Nicholas Marriott
@@ -32,7 +41,12 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode ram dir_writable dir vcs)
 POWERLEVEL9K_VI_INSERT_MODE_STRING="\u03bb"
 POWERLEVEL9K_VI_COMMAND_MODE_STRING="\u27a4"
 
-eval `dircolors /home/kennychufk/.dircolors.256dark`
+case $OS in
+  'Linux')
+    eval `dircolors ~/.dircolors.256dark`
+    ;;
+  *) ;;
+esac
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -41,7 +55,7 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/kennychufk/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -85,7 +99,16 @@ bindkey -M menuselect 'o' accept-line
 
 bindkey '^F' autosuggest-accept
 
-source ~/.zplug/init.zsh
+case $OS in
+  'Linux')
+    source ~/.zplug/init.zsh
+    ;;
+  'Darwin')
+    source /usr/local/opt/zplug/init.zsh
+    ;;
+  *) ;;
+esac
+
 [[ -n "$SSH_CLIENT" || "$TERM" == "linux" ]] && \
   zplug "eendroroy/alien-minimal" || \
   zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
