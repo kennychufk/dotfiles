@@ -1,6 +1,7 @@
 **
 !/.gitignore
 
+!/.pam_environment
 !/.editorconfig
 !/.zshrc
 !/.xinitrc
