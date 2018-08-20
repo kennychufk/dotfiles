@@ -3,7 +3,11 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 " Appearance
-Plug 'altercation/vim-colors-solarized'
+if has('win32')
+  Plug 'frankier/neovim-colors-solarized-truecolor-only'
+else
+  Plug 'altercation/vim-colors-solarized'
+endif
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'reedes/vim-colors-pencil'
@@ -111,7 +115,7 @@ let g:session_autoload = 'no'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 let g:Tex_ViewRule_pdf = 'okular --unique'
-let g:Tex_IgnoredWarnings = 
+let g:Tex_IgnoredWarnings =
   \'Underfull'."\n".
   \'Overfull'."\n".
   \'specifier changed to'."\n".
@@ -173,4 +177,3 @@ augroup END
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-
