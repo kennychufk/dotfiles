@@ -33,8 +33,6 @@ Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe'
 " Code formatting
 Plug 'Chiel92/vim-autoformat'
-Plug 'rhysd/vim-clang-format'
-Plug 'maksimr/vim-jsbeautify'
 " Syntax checking
 " Syntax highlighting
 Plug 'tikhomirov/vim-glsl'
@@ -97,12 +95,7 @@ let g:DiffUnit = 'Word1'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:gutentags_dont_load = 1
 let g:buffergator_suppress_keymaps = 1
-let g:clang_format#code_style = 'google'
-let g:clang_format#style_options = {
-  \ "Standard": "C++11" }
 let g:ycm_always_populate_location_list = 1
-
-let g:editorconfig_Beautifier='~/.editorconfig'
 
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
@@ -130,7 +123,7 @@ let g:Tex_IgnoredWarnings =
 let g:Tex_IngnoreLevel = 8
 
 " Enforce good practice by disabling some keys
-inoremap <C-C> <nop>
+inoremap <C-c> <nop>
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
@@ -146,6 +139,8 @@ nnoremap <leader>gt :YcmCompleter GetType<cr>
 nnoremap <leader>f :YcmCompleter FixIt<cr>
 nnoremap <leader>[ :lprevious<cr>
 nnoremap <leader>] :lnext<cr>
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-_> :Autoformat<cr>
 
 " let g:tmux_navigator_no_mappings = 1
 nnoremap è :TmuxNavigateLeft<cr>
@@ -160,12 +155,6 @@ nnoremap ∆ :TmuxNavigateDown<cr>
 nnoremap ˚ :TmuxNavigateUp<cr>
 nnoremap ¬ :TmuxNavigateRight<cr>
 nnoremap « :TmuxNavigatePrevious<cr>
-
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 let g:pencil#wrapModeDefault = 'soft'
 augroup pencil

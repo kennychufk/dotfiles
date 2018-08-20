@@ -3,6 +3,7 @@
 
 !/.pam_environment
 !/.editorconfig
+!/.clang-format
 !/.zshrc
 !/.xinitrc
 !/.xprofile
