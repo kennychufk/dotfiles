@@ -41,6 +41,7 @@ Plug 'tikhomirov/vim-glsl'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'rickhowe/diffchar.vim'
 " Build
 Plug 'neomake/neomake'
 " Documentation
@@ -92,6 +93,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
+let g:DiffUnit = 'Word1'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:gutentags_dont_load = 1
 let g:buffergator_suppress_keymaps = 1
@@ -114,7 +116,18 @@ let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 
 let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 let g:Tex_ViewRule_pdf = 'okular --unique'
+let g:Tex_IgnoredWarnings = 
+  \'Underfull'."\n".
+  \'Overfull'."\n".
+  \'specifier changed to'."\n".
+  \'You have requested'."\n".
+  \'Missing number, treated as zero.'."\n".
+  \'There were undefined references'."\n".
+  \'Package hyperref Warning'."\n".
+  \'Citation %.%# undefined'
+let g:Tex_IngnoreLevel = 8
 
 " Enforce good practice by disabling some keys
 inoremap <C-C> <nop>
