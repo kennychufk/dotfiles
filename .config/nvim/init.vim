@@ -97,7 +97,6 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 let g:DiffUnit = 'Word1'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:gutentags_dont_load = 1
 let g:buffergator_suppress_keymaps = 1
 let g:ycm_always_populate_location_list = 1
 
