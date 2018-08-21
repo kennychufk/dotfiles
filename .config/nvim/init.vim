@@ -86,7 +86,7 @@ set number " show line numbers
 
 " filetype
 filetype on
-au BufNewFile,BufRead *.cuh set filetype=cpp
+au BufNewFile,BufRead *.cu,*.cuh set filetype=cpp
 au BufNewFile,BufRead *.inc set filetype=tex
 let g:tex_flavor = "latex"
 
