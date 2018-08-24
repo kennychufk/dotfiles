@@ -32,6 +32,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'dhruvasagar/vim-zoom'
 " ctags
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
 Plug 'majutsushi/tagbar'
 " Keyword completion
 Plug 'Valloric/YouCompleteMe'
@@ -102,6 +103,7 @@ let g:ycm_always_populate_location_list = 1
 
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{gutentags#statusline()}
 set statusline+=%*
 
 let g:zv_file_types = {
@@ -110,6 +112,9 @@ let g:zv_file_types = {
 " xolox/vim-session
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
+
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+let g:gutentags_cache_dir = expand('~/.cache/tags')
 
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
