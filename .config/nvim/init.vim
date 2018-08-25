@@ -3,11 +3,7 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 " Appearance
-if has('win32')
-  Plug 'frankier/neovim-colors-solarized-truecolor-only'
-else
-  Plug 'altercation/vim-colors-solarized'
-endif
+Plug 'romainl/flattened'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'reedes/vim-colors-pencil'
@@ -76,8 +72,8 @@ set backspace=indent,eol,start " allow backspacing over autoindent (indent)
 
 " Appearance
 set background=dark
-" set background=light
-colorscheme solarized
+set termguicolors
+colorscheme flattened_dark
 " colorscheme pencil
 
 set listchars=tab:»-,trail:· " display tabs and trailing spaces
