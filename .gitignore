@@ -30,3 +30,4 @@
 # macOS
 !/.chunkwmrc
 !/.skhdrc
+!/.gitignore_global
