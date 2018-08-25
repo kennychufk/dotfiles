@@ -26,3 +26,7 @@
 !/.config/fcitx/profile
 !/.config/fcitx/rime
 !/.config/fcitx/rime/default.custom.yaml
+
+# macOS
+!/.chunkwmrc
+!/.skhdrc
