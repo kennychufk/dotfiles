@@ -46,7 +46,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
 revelation.init()
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvt"
+terminal = "kitty"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 browser = os.getenv("BROWSER")
