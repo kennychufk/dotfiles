@@ -26,3 +26,6 @@
 !/.config/fcitx/profile
 !/.config/fcitx/rime
 !/.config/fcitx/rime/default.custom.yaml
+
+!/.config/kitty/
+!/.config/kitty/kitty.conf
