@@ -3,6 +3,7 @@
 
 !/.gitconfig
 !/.notags
+!/.ctags
 !/.pam_environment
 !/.editorconfig
 !/.clang-format
