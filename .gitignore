@@ -3,6 +3,7 @@
 
 !/.gitconfig
 !/.notags
+!/.ctags
 !/.pam_environment
 !/.editorconfig
 !/.clang-format
@@ -26,6 +27,9 @@
 !/.config/fcitx/profile
 !/.config/fcitx/rime
 !/.config/fcitx/rime/default.custom.yaml
+
+!/.config/kitty/
+!/.config/kitty/kitty.conf
 
 # macOS
 !/.chunkwmrc

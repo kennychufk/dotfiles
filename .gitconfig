@@ -24,3 +24,5 @@
 	process = git-lfs filter-process
 [url "https://github.com/"]
 	insteadOf = github:
+[credential]
+	helper = cache --timeout=3600

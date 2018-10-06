@@ -1,2 +1,3 @@
 EDITOR=nvim
 TERM=rxvt-unicode-256color
+BROWSER=firefox
