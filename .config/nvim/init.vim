@@ -114,7 +114,7 @@ let g:gutentags_cache_dir = expand('~/.cache/tags')
 
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
-let g:Tex_ViewRule_pdf = 'okular --unique'
+let g:Tex_ViewRule_pdf = '/Applications/Adobe\ Acrobat\ Reader\ DC.app/Contents/MacOS/AdobeReader'
 let g:Tex_IgnoredWarnings =
   \'Underfull'."\n".
   \'Overfull'."\n".
