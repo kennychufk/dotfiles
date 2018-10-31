@@ -125,6 +125,13 @@ let g:Tex_IgnoredWarnings =
   \'Package hyperref Warning'."\n".
   \'Citation %.%# undefined'
 let g:Tex_IngnoreLevel = 8
+function CompileXeTex()
+    let oldCompileRule=g:Tex_CompileRule_pdf
+    let g:Tex_CompileRule_pdf = 'xelatex --synctex=-1 -src-specials -interaction=nonstopmode $*'
+    call Tex_RunLaTeX()
+    let g:Tex_CompileRule_pdf=oldCompileRule
+endfunction
+nnoremap <leader>lx :<C-u>call CompileXeTex()<cr>
 
 " Enforce good practice by disabling some keys
 inoremap <C-c> <nop>
