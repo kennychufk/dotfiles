@@ -11,6 +11,7 @@ case $OS in
 esac
 alias grep='grep --color=auto'
 alias startsddm='sudo systemctl start sddm'
+export EDITOR='nvim'
 
 # Appends every command to the history file once it is executed
 setopt inc_append_history
