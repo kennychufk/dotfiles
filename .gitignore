@@ -30,3 +30,8 @@
 
 !/.config/kitty/
 !/.config/kitty/kitty.conf
+
+# macOS
+!/.chunkwmrc
+!/.skhdrc
+!/.gitignore_global
