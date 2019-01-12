@@ -1,8 +1,8 @@
 ########## Environment detection
-OS="`uname`"
+UNAME="`uname`"
 WSL=false
 SSH=false
-[[ "$OS" == "Linux" ]] && grep -qE "(Microsoft|WSL)" /proc/version && \
+[[ "$UNAME" == "Linux" ]] && grep -qE "(Microsoft|WSL)" /proc/version && \
   WSL=true
 [[ -n "$SSH_CLIENT" || "$TERM" == "linux" ]] && \
   SSH=true
@@ -13,7 +13,7 @@ alias startsddm='sudo systemctl start sddm'
 [ "$WSL" = true ] && \
   alias start='/mnt/c/Windows/System32/cmd.exe /c start'
 # -a: only use color when printing to stdout 
-case $OS in
+case $UNAME in
   'Linux')
     alias ls='ls -aF --color=auto'
     ;;
@@ -24,7 +24,7 @@ case $OS in
 esac
 
 ########## Environment setting
-[[ "$OS" == "Linux" ]] && eval `dircolors ~/.dircolors.256dark`
+[[ "$UNAME" == "Linux" ]] && eval `dircolors ~/.dircolors.256dark`
 
 ########## zsh options
 # Appends every command to the history file once it is executed
@@ -83,6 +83,7 @@ bindkey -M menuselect 'o' accept-line
 source "${HOME}/.zgen/zgen.zsh"
 ########## powerlevel9k
 zgen load bhilburn/powerlevel9k powerlevel9k
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode ram dir_writable dir vcs)
 if [ "$WSL" = true ] ; then
   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir_writable dir)
   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
@@ -99,6 +100,9 @@ bindkey '^F' autosuggest-accept
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 
 ########## Environment variables
+export WSL
+export UNAME
+export SSH
 export PATH=/mnt/c/texlive/2018/bin/win32:$PATH
 export PATH="/mnt/c/Program Files/SumatraPDF:$PATH"
 export EDITOR='nvim'
