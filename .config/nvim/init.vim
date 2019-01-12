@@ -85,7 +85,7 @@ set number " show line numbers
 filetype on
 au BufNewFile,BufRead *.cu,*.cuh set filetype=cpp
 au BufNewFile,BufRead *.inc set filetype=tex
-let g:tex_flavor = "latex"
+let g:tex_flavor = "pdflatex"
 
 let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
@@ -113,8 +113,12 @@ let g:gutentags_modules = ['ctags', 'gtags_cscope']
 let g:gutentags_cache_dir = expand('~/.cache/tags')
 
 let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_Debug = 1
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
-if $UNAME == 'Darwin'
+if $WSL == 'true'
+  let g:Tex_ViewRule_pdf = 'sumatrapdf'
+  let g:Tex_ExecuteUNIXViewerInForeground = 1
+elseif $UNAME == 'Darwin'
   let g:Tex_ViewRule_pdf = 'open -a Skim'
 elseif $UNAME == 'Linux'
   let g:Tex_ViewRule_pdf = 'okular --unique'
