@@ -7,7 +7,7 @@ SSH=false
 [[ -n "$SSH_CLIENT" || "$TERM" == "linux" ]] && \
   SSH=true
 
-########## Alias
+########## Alias / function
 alias grep='grep --color=auto'
 alias startsddm='sudo systemctl start sddm'
 [ "$WSL" = true ] && \
@@ -22,6 +22,9 @@ case $UNAME in
     ;;
   *) ;;
 esac
+function psh(){
+  powershell.exe -Command $@
+}
 
 ########## Environment setting
 [[ "$UNAME" == "Linux" ]] && eval `dircolors ~/.dircolors.256dark`
@@ -105,4 +108,8 @@ export UNAME
 export SSH
 export PATH=/mnt/c/texlive/2018/bin/win32:$PATH
 export PATH="/mnt/c/Program Files/SumatraPDF:$PATH"
+export PATH="/mnt/c/Windows/System32:$PATH"
+export PATH="/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH"
+export PATH="/mnt/c/ProgramData/chocolatey/bin:$PATH"
 export EDITOR='nvim'
+export GIT_TERMINAL_PROMPT=1
