@@ -37,6 +37,7 @@ Plug 'Chiel92/vim-autoformat'
 " Syntax checking
 " Syntax highlighting
 Plug 'tikhomirov/vim-glsl'
+Plug 'vim-scripts/ShaderHighLight'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -69,10 +70,25 @@ set softtabstop=2
 set backspace=indent,eol,start " allow backspacing over autoindent (indent)
                                " allow line-joining (eol)
                                " allow backspacing over the START of insert
+if $WSL == 'true'
+let g:clipboard = {
+      \   'name': 'myClipboard',
+      \   'copy': {
+      \      '+': 'win32yank -i --crlf',
+      \      '*': 'win32yank -i --crlf',
+      \    },
+      \   'paste': {
+      \      '+': 'win32yank -o --lf',
+      \      '*': 'win32yank -o --lf',
+      \   },
+      \   'cache_enabled': 1,
+      \ }
+endif
 
 " Appearance
 set background=dark
 set termguicolors
+set foldmethod=marker
 colorscheme flattened_dark
 " colorscheme pencil
 
@@ -93,7 +109,16 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 let g:DiffUnit = 'Word1'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast, respects .gitignore
+  " and .agignore. Ignores hidden files by default.
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
+else
+  "ctrl+p ignore files in .gitignore
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+endif
+let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:buffergator_suppress_keymaps = 1
 let g:ycm_always_populate_location_list = 1
 
