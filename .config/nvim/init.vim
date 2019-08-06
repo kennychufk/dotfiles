@@ -7,6 +7,7 @@ Plug 'romainl/flattened'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'reedes/vim-colors-pencil'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Text editing
 Plug 'tpope/vim-surround'
 Plug 'tommcdo/vim-exchange'
@@ -95,12 +96,13 @@ colorscheme flattened_dark
 set listchars=tab:»-,trail:· " display tabs and trailing spaces
 set list
 syntax on " switch syntax highlighting on
-set number " show line numbers
+set number relativenumber " jeffkreeftmeijer/vim-numbertoggle
 
 " filetype
 filetype on
 au BufNewFile,BufRead *.cu,*.cuh set filetype=cpp
 au BufNewFile,BufRead *.inc set filetype=tex
+au BufNewFile,BufRead *.cginc set filetype=shaderlab
 let g:tex_flavor = "pdflatex"
 
 let g:airline_theme = 'solarized'
@@ -215,5 +217,5 @@ augroup pencil
                             \ | setl spell spl=en_us et sw=2 ts=2
 augroup END
 
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+autocmd! User GoyoEnter Limelight | color flattened_light
+autocmd! User GoyoLeave Limelight! | color flattened_dark

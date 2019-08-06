@@ -22,8 +22,14 @@ case $UNAME in
     ;;
   *) ;;
 esac
+function ii(){
+  powershell.exe -Command "ii $@"
+}
 function psh(){
   powershell.exe -Command $@
+}
+function pshf(){
+  powershell.exe -File $@
 }
 
 ########## Environment setting
@@ -111,5 +117,7 @@ export PATH="/mnt/c/Program Files/SumatraPDF:$PATH"
 export PATH="/mnt/c/Windows/System32:$PATH"
 export PATH="/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH"
 export PATH="/mnt/c/ProgramData/chocolatey/bin:$PATH"
+export PATH="/usr/local/cuda-10.1/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"
 export EDITOR='nvim'
 export GIT_TERMINAL_PROMPT=1
