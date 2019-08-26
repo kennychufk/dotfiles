@@ -187,6 +187,8 @@ nnoremap <leader>[ :lprevious<cr>
 nnoremap <leader>] :lnext<cr>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-_> :Autoformat<cr>
+com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
+nnoremap = :FormatXML<Cr>
 
 " let g:tmux_navigator_no_mappings = 1
 nnoremap è :TmuxNavigateLeft<cr>
