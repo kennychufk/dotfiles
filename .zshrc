@@ -92,16 +92,16 @@ bindkey -M menuselect 'o' accept-line
 source "${HOME}/.zgen/zgen.zsh"
 ########## powerlevel9k
 zgen load bhilburn/powerlevel9k powerlevel9k
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir_writable dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir_writable dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 POWERLEVEL9K_VI_INSERT_MODE_STRING="\u03bb"
 if [ "$WSL" = true ] ; then
   POWERLEVEL9K_VI_INSERT_MODE_STRING="\u03c9"
 else
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=(ram)
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=(ram vcs)
 fi
 if [ "$SSH" = true ] ; then
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=(hostname)
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=(context)
 fi
 POWERLEVEL9K_VI_COMMAND_MODE_STRING="\u03bd"
 
