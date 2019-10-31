@@ -72,18 +72,18 @@ set backspace=indent,eol,start " allow backspacing over autoindent (indent)
                                " allow line-joining (eol)
                                " allow backspacing over the START of insert
 if $WSL == 'true'
-let g:clipboard = {
-      \   'name': 'myClipboard',
-      \   'copy': {
-      \      '+': 'win32yank -i --crlf',
-      \      '*': 'win32yank -i --crlf',
-      \    },
-      \   'paste': {
-      \      '+': 'win32yank -o --lf',
-      \      '*': 'win32yank -o --lf',
-      \   },
-      \   'cache_enabled': 1,
-      \ }
+  let g:clipboard = {
+        \   'name': 'myClipboard',
+        \   'copy': {
+        \      '+': '/mnt/c/tools/neovim/Neovim/bin/win32yank.exe -i --crlf',
+        \      '*': '/mnt/c/tools/neovim/Neovim/bin/win32yank.exe -i --crlf',
+        \    },
+        \   'paste': {
+        \      '+': '/mnt/c/tools/neovim/Neovim/bin/win32yank.exe -o --lf',
+        \      '*': '/mnt/c/tools/neovim/Neovim/bin/win32yank.exe -o --lf',
+        \   },
+        \   'cache_enabled': 1,
+        \ }
 endif
 
 " Appearance
