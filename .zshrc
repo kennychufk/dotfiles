@@ -114,7 +114,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export WSL
 export UNAME
 export SSH
-export PATH=/mnt/c/texlive/2018/bin/win32:$PATH
+export PATH=/mnt/c/texlive/2019/bin/win32:$PATH
 export PATH="/mnt/c/Program Files/SumatraPDF:$PATH"
 export PATH="/mnt/c/Windows/System32:$PATH"
 export PATH="/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH"
