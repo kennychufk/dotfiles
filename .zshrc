@@ -120,6 +120,7 @@ export PATH="/mnt/c/Windows/System32:$PATH"
 export PATH="/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH"
 export PATH="/mnt/c/ProgramData/chocolatey/bin:$PATH"
 export PATH="/usr/local/cuda-10.1/bin:$PATH"
+[[ "$UNAME" == "Darwin" ]] && export PATH=/opt/local/bin:/opt/local/sbin:$PATH # for MacPorts
 export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"
 export EDITOR='nvim'
 export GIT_TERMINAL_PROMPT=1
