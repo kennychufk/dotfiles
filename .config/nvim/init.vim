@@ -91,6 +91,7 @@ set background=dark
 set termguicolors
 set foldmethod=marker
 colorscheme flattened_dark
+language en_US
 " colorscheme pencil
 
 set listchars=tab:»-,trail:· " display tabs and trailing spaces
