@@ -8,6 +8,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'reedes/vim-colors-pencil'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'machakann/vim-highlightedyank'
 " Text editing
 Plug 'tpope/vim-surround'
 Plug 'tommcdo/vim-exchange'
@@ -27,6 +28,7 @@ Plug 'Valloric/ListToggle' " supplements for YouCompleteMe
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'dhruvasagar/vim-zoom'
+Plug 'kassio/neoterm'
 " ctags
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
@@ -45,6 +47,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rickhowe/diffchar.vim'
 " Build
 Plug 'neomake/neomake'
+" Test
+Plug 'vim-test/vim-test'
 " Documentation
 Plug 'KabbAmine/zeavim.vim', {'on': [
       \ 'Zeavim', 'Docset',
@@ -71,6 +75,7 @@ set softtabstop=2
 set backspace=indent,eol,start " allow backspacing over autoindent (indent)
                                " allow line-joining (eol)
                                " allow backspacing over the START of insert
+set inccommand=split " shows the effects of :substitute incrementally
 if $WSL == 'true'
   let g:clipboard = {
         \   'name': 'myClipboard',
@@ -91,7 +96,7 @@ set background=dark
 set termguicolors
 set foldmethod=marker
 colorscheme flattened_dark
-language en_US
+language en_US.utf8
 " colorscheme pencil
 
 set listchars=tab:»-,trail:· " display tabs and trailing spaces
@@ -133,6 +138,8 @@ set statusline+=%*
 let g:zv_file_types = {
   \ 'cpp': 'cpp,boost'}
 
+let g:neoterm_default_mod = 'belowright'
+let test#strategy='neoterm'
 " xolox/vim-session
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
@@ -190,6 +197,9 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-_> :Autoformat<cr>
 com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 nnoremap = :FormatXML<Cr>
+
+" shorthand for escaping terminal mode
+tnoremap <A-[> <C-\><C-n>
 
 " let g:tmux_navigator_no_mappings = 1
 nnoremap è :TmuxNavigateLeft<cr>
