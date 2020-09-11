@@ -120,13 +120,30 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export WSL
 export UNAME
 export SSH
-export PATH=/mnt/c/texlive/2019/bin/win32:$PATH
-export PATH="/mnt/c/Program Files/SumatraPDF:$PATH"
-export PATH="/mnt/c/Windows/System32:$PATH"
-export PATH="/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH"
-export PATH="/mnt/c/ProgramData/chocolatey/bin:$PATH"
-export PATH="/usr/local/cuda-10.1/bin:$PATH"
+[[ "$WSL" = true ]] && export PATH=/mnt/c/texlive/2019/bin/win32:$PATH
+[[ "$WSL" = true ]] && export PATH="/mnt/c/Program Files/SumatraPDF:$PATH"
+[[ "$WSL" = true ]] && export PATH="/mnt/c/Windows/System32:$PATH"
+[[ "$WSL" = true ]] && export PATH="/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH"
+[[ "$WSL" = true ]] && export PATH="/mnt/c/ProgramData/chocolatey/bin:$PATH"
+[[ "$UNAME" == "Linux" ]] && export PATH="/usr/local/cuda-10.1/bin:$PATH"
 [[ "$UNAME" == "Darwin" ]] && export PATH=/opt/local/bin:/opt/local/sbin:$PATH # for MacPorts
-export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"
+[[ "$UNAME" == "Linux" ]] && export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"
 export EDITOR='nvim'
 export GIT_TERMINAL_PROMPT=1
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/kennychufk/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/kennychufk/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/kennychufk/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/kennychufk/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+#
+[[ "$UNAME" == "Linux" ]] && conda activate ml
