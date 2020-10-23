@@ -31,6 +31,12 @@ function psh(){
 function pshf(){
   powershell.exe -File $@
 }
+function cmdf(){
+  cmd.exe /c $@
+}
+function mlenv(){
+  cmd.exe /c "call activate.bat ml && $@"
+}
 
 ########## Environment setting
 [[ "$UNAME" == "Linux" ]] && eval `dircolors ~/.dircolors.256dark`

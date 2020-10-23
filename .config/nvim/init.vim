@@ -37,6 +37,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe'
 " Code formatting
 Plug 'Chiel92/vim-autoformat'
+" install yapf for python formatting
 " Syntax checking
 " Syntax highlighting
 Plug 'tikhomirov/vim-glsl'
