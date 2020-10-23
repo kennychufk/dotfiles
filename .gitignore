@@ -12,6 +12,7 @@
 !/.xprofile
 !/.tmux.conf
 !/.Xresources
+!/.Xresources-regolith
 !/.dircolors.256dark
 
 !/.config/
@@ -27,6 +28,11 @@
 !/.config/fcitx/profile
 !/.config/fcitx/rime
 !/.config/fcitx/rime/default.custom.yaml
+
+!/.config/regolith/
+!/.config/regolith/Xresources
+!/.config/regolith/i3
+!/.config/regolith/i3/config
 
 !/.config/kitty/
 !/.config/kitty/kitty.conf
