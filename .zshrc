@@ -1,11 +1,15 @@
 ########## Environment detection
 UNAME="`uname`"
+UNAME_MACHINE="`uname -m`"
 WSL=false
 SSH=false
+RPI=false
 [[ "$UNAME" == "Linux" ]] && grep -qE "(Microsoft|WSL)" /proc/version && \
   WSL=true
 [[ -n "$SSH_CLIENT" || "$TERM" == "linux" ]] && \
   SSH=true
+[[ "$UNAME_MACHINE" == arm* ]] && \
+  RPI=true
 
 ########## Alias / function
 alias grep='grep --color=auto'
@@ -64,7 +68,7 @@ compinit
 zle -N edit-command-line
 autoload -Uz edit-command-line
 bindkey -M vicmd 'v' edit-command-line
-# update vi mode indicator (required by powerlevel9k vi-mode segment)
+# update vi mode indicator (required by powerlevel10k vi-mode segment)
 function zle-keymap-select() {
   zle reset-prompt
   zle -R
@@ -96,8 +100,8 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'o' accept-line
 
 source "${HOME}/.zgen/zgen.zsh"
-########## powerlevel9k
-zgen load bhilburn/powerlevel9k powerlevel9k
+########## powerlevel10k
+zgen load romkatv/powerlevel10k powerlevel10k
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode dir_writable dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
 POWERLEVEL9K_VI_INSERT_MODE_STRING="\u03bb"
@@ -135,18 +139,25 @@ export EDITOR='nvim'
 export GIT_TERMINAL_PROMPT=1
 
 # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/kennychufk/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+if [ "$RPI" = true ] ; then
+  alias python=python3
+  alias pip=pip3
+  export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+  source "$HOME/.local/bin/virtualenvwrapper.sh"
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=(virtualenv)
 else
-    if [ -f "/home/kennychufk/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/kennychufk/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/kennychufk/miniconda3/bin:$PATH"
-    fi
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/home/kennychufk/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/home/kennychufk/miniconda3/etc/profile.d/conda.sh" ]; then
+          . "/home/kennychufk/miniconda3/etc/profile.d/conda.sh"
+      else
+          export PATH="/home/kennychufk/miniconda3/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
+  [[ "$UNAME" == "Linux" ]] && conda activate ml
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-#
-[[ "$UNAME" == "Linux" ]] && conda activate ml
