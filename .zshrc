@@ -122,6 +122,9 @@ export SSH
 [[ "$UNAME" == "Linux" ]] && export PATH="/usr/local/cuda-10.1/bin:$PATH"
 [[ "$UNAME" == "Darwin" ]] && export PATH=/opt/local/bin:/opt/local/sbin:$PATH # for MacPorts
 [[ "$UNAME" == "Linux" ]] && export LD_LIBRARY_PATH="/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH"
+[[ "$UNAME" == "Linux" ]] && export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
+[[ "$UNAME" == "Linux" ]] && export MANPATH="/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH"
+[[ "$UNAME" == "Linux" ]] && export INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH"
 export EDITOR='nvim'
 export GIT_TERMINAL_PROMPT=1
 
