@@ -98,7 +98,11 @@ set background=dark
 set termguicolors
 set foldmethod=marker
 colorscheme flattened_dark
-language en_US.utf8
+if $UNAME == 'Darwin'
+  language en_US.UTF-8
+else
+  language en_US.utf8
+endif
 " colorscheme pencil
 
 set listchars=tab:»-,trail:· " display tabs and trailing spaces
