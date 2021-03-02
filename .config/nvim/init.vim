@@ -42,6 +42,7 @@ Plug 'Chiel92/vim-autoformat'
 " Syntax highlighting
 Plug 'tikhomirov/vim-glsl'
 Plug 'vim-scripts/ShaderHighLight'
+Plug 'voldikss/vim-mma'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
