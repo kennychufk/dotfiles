@@ -147,17 +147,18 @@ if [ "$RPI" = true ] ; then
   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=(virtualenv)
 else
   # !! Contents within this block are managed by 'conda init' !!
-  __conda_setup="$('/home/kennychufk/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  __conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
   if [ $? -eq 0 ]; then
       eval "$__conda_setup"
   else
-      if [ -f "/home/kennychufk/miniconda3/etc/profile.d/conda.sh" ]; then
-          . "/home/kennychufk/miniconda3/etc/profile.d/conda.sh"
+      if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+          . "$HOME/miniconda3/etc/profile.d/conda.sh"
       else
-          export PATH="/home/kennychufk/miniconda3/bin:$PATH"
+          export PATH="$HOME/miniconda3/bin:$PATH"
       fi
   fi
   unset __conda_setup
   # <<< conda initialize <<<
   [[ "$UNAME" == "Linux" ]] && conda activate ml
+  [[ "$UNAME" == "Darwin" ]] && conda activate ml
 fi
