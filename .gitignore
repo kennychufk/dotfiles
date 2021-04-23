@@ -8,26 +8,14 @@
 !/.editorconfig
 !/.clang-format
 !/.zshrc
-!/.xinitrc
-!/.xprofile
 !/.tmux.conf
 !/.Xresources
-!/.Xresources-regolith
 !/.dircolors.256dark
 
 !/.config/
 !/.config/nvim/
 !/.config/nvim/init.vim
 !/.config/nvim/ginit.vim
-
-!/.config/awesome/
-!/.config/awesome/rc.lua
-
-!/.config/fcitx/
-!/.config/fcitx/config
-!/.config/fcitx/profile
-!/.config/fcitx/rime
-!/.config/fcitx/rime/default.custom.yaml
 
 !/.config/regolith/
 !/.config/regolith/Xresources
