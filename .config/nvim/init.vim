@@ -34,9 +34,13 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'majutsushi/tagbar'
 " Keyword completion
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer' }
 " Code formatting
 Plug 'Chiel92/vim-autoformat'
+" Snippet insertion
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
 " install yapf for python formatting
 " Syntax checking
 " Syntax highlighting
@@ -135,6 +139,14 @@ endif
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:buffergator_suppress_keymaps = 1
 let g:ycm_always_populate_location_list = 1
+
+" YCM & UltiSnips compatibility
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
