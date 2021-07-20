@@ -129,9 +129,9 @@ export SSH
 [[ "$WSL" = true ]] && export PATH="/mnt/c/Windows/System32:$PATH"
 [[ "$WSL" = true ]] && export PATH="/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH"
 [[ "$WSL" = true ]] && export PATH="/mnt/c/ProgramData/chocolatey/bin:$PATH"
-[[ "$UNAME" == "Linux" ]] && export PATH="/usr/local/cuda-11.2/bin:$PATH"
+[[ "$UNAME" == "Linux" ]] && export PATH="/usr/local/cuda-11.3/bin:$PATH"
 [[ "$UNAME" == "Darwin" ]] && export PATH=/opt/local/bin:/opt/local/sbin:$PATH # for MacPorts
-[[ "$UNAME" == "Linux" ]] && export LD_LIBRARY_PATH="/usr/local/cuda-11.2/lib64:$LD_LIBRARY_PATH"
+[[ "$UNAME" == "Linux" ]] && export LD_LIBRARY_PATH="/usr/local/cuda-11.3/lib64:$LD_LIBRARY_PATH"
 [[ "$UNAME" == "Linux" ]] && export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
 [[ "$UNAME" == "Linux" ]] && export MANPATH="/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH"
 [[ "$UNAME" == "Linux" ]] && export INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH"
