@@ -24,7 +24,6 @@ Plug 'mileszs/ack.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'Valloric/ListToggle' " supplements for YouCompleteMe
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'dhruvasagar/vim-zoom'
@@ -34,13 +33,22 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'majutsushi/tagbar'
 " Keyword completion
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clangd-completer' }
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-tmux'
+Plug 'roxma/nvim-yarp'
+" ncm2 sources
+Plug 'ncm2/ncm2-bufword'
+Plug 'fgrsnau/ncm2-otherbuf'
+Plug 'ncm2/ncm2-path'
+Plug 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "<c-n>" " ncm2 uses reversed order?
+" ncm2 languages
+Plug 'ncm2/ncm2-jedi'
 " Code formatting
 Plug 'Chiel92/vim-autoformat'
 " Snippet insertion
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
 " install yapf for python formatting
 " Syntax checking
 " Syntax highlighting
@@ -114,6 +122,9 @@ set list
 syntax on " switch syntax highlighting on
 set number relativenumber " jeffkreeftmeijer/vim-numbertoggle
 
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
 " filetype
 filetype on
 au BufNewFile,BufRead *.cu,*.cuh set filetype=cpp
@@ -138,15 +149,7 @@ else
 endif
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:buffergator_suppress_keymaps = 1
-let g:ycm_always_populate_location_list = 1
 
-" YCM & UltiSnips compatibility
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
@@ -205,10 +208,6 @@ nnoremap <leader>ev :sp $MYVIMRC<cr> " shorthand for editing vimrc
 nnoremap <leader>b :BuffergatorToggle<cr>
 nnoremap <leader>tb :BuffergatorTabsToggle<cr>
 nnoremap <leader>tg :TagbarToggle<cr>
-nnoremap <leader>jd :YcmCompleter GoTo<cr>
-nnoremap <leader>ji :YcmCompleter GoToInclude<cr>
-nnoremap <leader>gt :YcmCompleter GetType<cr>
-nnoremap <leader>f :YcmCompleter FixIt<cr>
 nnoremap <leader>[ :lprevious<cr>
 nnoremap <leader>] :lnext<cr>
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -250,3 +249,6 @@ augroup END
 
 autocmd! User GoyoEnter Limelight | color flattened_light
 autocmd! User GoyoLeave Limelight! | color flattened_dark
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
