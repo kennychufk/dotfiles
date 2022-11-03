@@ -14,8 +14,7 @@
 
 !/.config/
 !/.config/nvim/
-!/.config/nvim/init.vim
-!/.config/nvim/ginit.vim
+!/.config/nvim/**
 
 !/.config/regolith/
 !/.config/regolith/Xresources
