@@ -14,7 +14,11 @@
 
 !/.config/
 !/.config/nvim/
-!/.config/nvim/**
+!/.config/nvim/init.lua
+!/.config/nvim/lua/
+!/.config/nvim/lua/**
+!/.config/nvim/lua/user/
+!/.config/nvim/lua/user/**
 
 !/.config/regolith/
 !/.config/regolith/Xresources

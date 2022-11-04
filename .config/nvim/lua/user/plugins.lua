@@ -66,38 +66,41 @@ return packer.startup(function(use)
 	use({ "lukas-reineke/indent-blankline.nvim" })
 	--   use { "goolord/alpha-nvim" }
 	--   use {"folke/which-key.nvim" }
-	--
-	--   -- Colorschemes
+
+	-- Colorschemes
 	use({ "lunarvim/onedarker.nvim" })
-	--
-	--   -- Cmp
+
+	-- Cmp
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
 	use({ "hrsh7th/cmp-path" }) -- path completions
 	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
-	--
-	--   -- Snippets
+
+	-- Snippets
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
-	--
-	--   -- LSP
+
+	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- enable LSP
 	use({ "williamboman/mason.nvim" }) -- simple to use language server installer
 	use({ "williamboman/mason-lspconfig.nvim" })
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	--   use { "RRethy/vim-illuminate" }
-	--
+
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
-	--
+
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	--
-	--   -- Git
+
+	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
 	use({ "tpope/vim-fugitive" }) --vimscript
+
+	-- tmux
+	use({ "aserowy/tmux.nvim" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
