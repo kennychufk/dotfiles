@@ -3,4 +3,7 @@ if not status_ok then
 	return
 end
 
-tmux.setup({ navigation = { cycle_navigation = false, enable_default_keybindings = true, persist_zoom = false } })
+tmux.setup({
+	copy_sync = { enable = false },
+	navigation = { cycle_navigation = false, enable_default_keybindings = true, persist_zoom = false },
+})

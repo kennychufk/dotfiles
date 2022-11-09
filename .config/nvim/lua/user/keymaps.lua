@@ -48,6 +48,9 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "p", '"_dP', opts)
 
+-- Git
+keymap("n", "<leader>g", "<cmd>Git<cr>", opts)
+
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
