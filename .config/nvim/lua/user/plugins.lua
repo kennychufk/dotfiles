@@ -47,12 +47,7 @@ return packer.startup(function(use)
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 	use({ "nvim-tree/nvim-web-devicons" })
 	use({ "nvim-tree/nvim-tree.lua" })
-	use({
-		"sitiom/nvim-numbertoggle",
-		config = function()
-			require("numbertoggle").setup()
-		end,
-	})
+	use({ "sitiom/nvim-numbertoggle" })
 	use({ "mileszs/ack.vim" }) -- vimscript
 	--   use { "akinsho/bufferline.nvim" }
 	--   use { "moll/vim-bbye" }
