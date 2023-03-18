@@ -15,6 +15,7 @@
 !/.config/
 !/.config/nvim/
 !/.config/nvim/init.lua
+!/.config/nvim/.lsp_root
 !/.config/nvim/lua/
 !/.config/nvim/lua/**
 !/.config/nvim/lua/user/

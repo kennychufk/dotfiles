@@ -40,6 +40,7 @@ for _, server in pairs(servers) do
 	opts = {
 		on_attach = require("user.lsp.handlers").on_attach,
 		capabilities = require("user.lsp.handlers").capabilities,
+		root_dir = lspconfig.util.root_pattern(".git", ".lsp_root"),
 	}
 
 	server = vim.split(server, "@")[1]
