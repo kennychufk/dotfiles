@@ -21,11 +21,6 @@
 !/.config/nvim/lua/user/
 !/.config/nvim/lua/user/**
 
-!/.config/regolith/
-!/.config/regolith/Xresources
-!/.config/regolith/i3
-!/.config/regolith/i3/config
-
 !/.config/kitty/
 !/.config/kitty/kitty.conf
 
