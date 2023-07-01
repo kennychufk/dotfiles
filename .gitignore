@@ -24,6 +24,9 @@
 !/.config/kitty/
 !/.config/kitty/kitty.conf
 
+!/.config/tmux/
+!/.config/tmux/tmux.conf
+
 # macOS
 !/.chunkwmrc
 !/.skhdrc
