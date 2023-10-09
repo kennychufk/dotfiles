@@ -124,7 +124,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export WSL
 export UNAME
 export SSH
-[[ "$WSL" = true ]] && export PATH=/mnt/c/texlive/2019/bin/win32:$PATH
+[[ "$WSL" = true ]] && export PATH=/mnt/c/texlive/2023/bin/win32:$PATH
 [[ "$WSL" = true ]] && export PATH="/mnt/c/Program Files/SumatraPDF:$PATH"
 [[ "$WSL" = true ]] && export PATH="/mnt/c/Windows/System32:$PATH"
 [[ "$WSL" = true ]] && export PATH="/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH"
@@ -132,9 +132,9 @@ export SSH
 [[ "$UNAME" == "Linux" ]] && export PATH="/usr/local/cuda/bin:$PATH"
 [[ "$UNAME" == "Darwin" ]] && export PATH=/opt/local/bin:/opt/local/sbin:$PATH # for MacPorts
 [[ "$UNAME" == "Linux" ]] && export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
-[[ "$UNAME" == "Linux" ]] && export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
-[[ "$UNAME" == "Linux" ]] && export MANPATH="/usr/local/texlive/2022/texmf-dist/doc/man:$MANPATH"
-[[ "$UNAME" == "Linux" ]] && export INFOPATH="/usr/local/texlive/2022/texmf-dist/doc/info:$INFOPATH"
+[[ "$UNAME" == "Linux" ]] && export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
+[[ "$UNAME" == "Linux" ]] && export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
+[[ "$UNAME" == "Linux" ]] && export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
 export EDITOR='nvim'
 export GIT_TERMINAL_PROMPT=1
 

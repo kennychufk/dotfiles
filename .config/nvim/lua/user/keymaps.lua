@@ -71,7 +71,7 @@ keymap(
 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
 	opts
 )
-keymap("n", "<C-/>", "<cmd>lua vim.lsp.buf.format{ async=true }<cr>", opts)
+keymap("n", "<C-m>", "<cmd>lua vim.lsp.buf.format{ async=true }<cr>", opts)
 keymap("n", "<C-t>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap(
