@@ -8,7 +8,7 @@ RPI=false
   WSL=true
 [[ -n "$SSH_CLIENT" || "$TERM" == "linux" ]] && \
   SSH=true
-[[ "$UNAME_MACHINE" == arm* ]] && \
+[[ "$UNAME_MACHINE" == arm* ]] && [ "$UNAME" != "Darwin" ] && \
   RPI=true
 
 ########## Alias / function
