@@ -14,12 +14,7 @@
 
 !/.config/
 !/.config/nvim/
-!/.config/nvim/init.lua
-!/.config/nvim/.lsp_root
-!/.config/nvim/lua/
-!/.config/nvim/lua/**
-!/.config/nvim/lua/user/
-!/.config/nvim/lua/user/**
+!/.config/nvim/**
 
 !/.config/kitty/
 !/.config/kitty/kitty.conf
