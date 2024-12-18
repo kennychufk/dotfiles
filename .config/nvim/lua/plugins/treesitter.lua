@@ -17,6 +17,8 @@ return {
       indent = { enable = true },
       -- ensure these language parsers are installed
       ensure_installed = {
+        -- vimdoc (help)
+        "vimdoc",
         -- web
         "json",
         "javascript",
